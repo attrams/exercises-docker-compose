@@ -1,0 +1,9 @@
+services:
+  backend:
+    image: attrams/example-backend
+    ports:
+      - 8080:8080
+  frontend:
+    image: attrams/example-frontend
+    ports:
+      - 5001:5001
