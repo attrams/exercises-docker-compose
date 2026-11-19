@@ -1,8 +1,17 @@
 services:
+  redis:
+    image: redis:8
+    restart: unless-stopped
+
   backend:
     image: attrams/example-backend
     ports:
       - 8080:8080
+    environment:
+      - REDIS_HOST=redis
+    depends_on:
+      - redis
+
   frontend:
     image: attrams/example-frontend
     ports:
