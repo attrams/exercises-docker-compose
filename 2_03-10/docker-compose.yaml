@@ -35,3 +35,13 @@ services:
     image: attrams/example-frontend
     ports:
       - 5001:5001
+
+  nginx:
+    image: nginx
+    ports:
+      - 8000:80
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - frontend
+      - backend
